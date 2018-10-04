@@ -1,0 +1,44 @@
+CREATE TABLE IF NOT EXISTS Words (
+    ID      INTEGER PRIMARY KEY,
+    ENGWORD TEXT    NOT NULL,
+    POLWORD TEXT    NOT NULL,
+    RANK    INTEGER NOT NULL
+                    DEFAULT 0
+);
+
+INSERT INTO words (
+                      engword,
+                      polword
+                  )
+                  VALUES (
+                      'Pol',
+                      'Eng'
+                  );
+
+DELETE FROM words
+      WHERE polword = 'Pol'
+	  
+INSERT INTO words (
+                      engword,
+                      polword
+                  )
+                  VALUES (
+                      'eng',
+                      'pol'
+                  ),
+                  (
+                      'eng1',
+                      'pol1'
+                  ),
+                  (
+                      'eng2',
+                      'pol2'
+                  );
+
+UPDATE words
+   SET rank = rank + 1
+ WHERE engword = 'eng';
+ 
+ UPDATE words
+   SET rank = rank + 1
+ WHERE engword IN ('eng', 'eng1', 'eng2');
